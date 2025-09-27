@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+     <header class="text-gray-600 body-font bg-white shadow-sm sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+        <div class="container mx-auto flex items-center justify-between p-5">
+            <!-- Logo -->
+            <a class="flex items-center text-gray-900 font-medium title-font">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                     class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                          d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                <span class="ml-3 text-xl">Bahasa Indonesia</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center text-base space-x-6">
+                <a href="index.html" class="hover:text-indigo-600 transition-colors duration-200">Beranda</a>
+                <a href="about.html" class="hover:text-indigo-600 transition-colors duration-200">Tentang</a>
+                <a href="#" class="hover:text-indigo-600 transition-colors duration-200">Kontak</a>
+                <a href="#" class="hover:text-indigo-600 transition-colors duration-200">Panduan</a>
+                
+                <!-- Desktop Button -->
+                <button class="inline-flex items-center bg-indigo-600 text-white border-0 py-2 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base transition-colors duration-200 ml-6">
+                    Login
+                    <svg fill="none" stroke="currentColor" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </nav>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-indigo-600 focus:outline-none transition-colors duration-200">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Dropdown -->
+        <nav id="mobile-menu" class="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 shadow-lg transition-all duration-300 ease-in-out max-h-0 overflow-hidden sticky top-full z-40">
+            <div class="container mx-auto px-5 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a href="index.html" class="text-gray-600 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded transition-all duration-200">
+                        Beranda
+                    </a>
+                    <a href="about.html" class="text-gray-600 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded transition-all duration-200">
+                        Tentang
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded transition-all duration-200">
+                        Kontak
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 hover:bg-gray-50 px-3 py-2 rounded transition-all duration-200">
+                        Panduan
+                    </a>
+                    
+                    <!-- Mobile Button -->
+                    <div class="pt-2 border-t border-gray-200">
+                        <button class="w-full inline-flex items-center justify-center bg-indigo-600 text-white border-0 py-3 px-4 focus:outline-none hover:bg-indigo-700 rounded text-base transition-colors duration-200">
+                            Kunjungi
+                            <svg fill="none" stroke="currentColor" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-4 py-12 flex flex-col lg:flex-row">
+        <!-- Sidebar Navigation -->
+        <aside class="lg:w-1/4 lg:pr-8 mb-8 lg:mb-0">
+            <div class="bg-white rounded-xl shadow-md p-6 sticky top-6">
+                <h3 class="text-lg font-semibold mb-4 text-indigo-700">Navigasi Materi</h3>
+                <ul class="space-y-3">
+                    <li><a href="#pengantar" class="relative text-gray-700 hover:text-indigo-600 transition after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-0.5 after:bg-indigo-600 after:transition-all after:duration-300 hover:after:w-full">Pengantar Singkat</a></li>
+                    <li><a href="#definisi" class="sidebar-link text-gray-700 hover:text-indigo-600 transition">Definisi Kecerdasan Buatan</a></li>
+                    <li><a href="#sejarah" class="sidebar-link text-gray-700 hover:text-indigo-600 transition">Sejarah Perkembangan</a></li>
+                    <li><a href="#konsep" class="sidebar-link text-gray-700 hover:text-indigo-600 transition">Konsep Utama</a></li>
+                    <li><a href="#penerapan" class="sidebar-link text-gray-700 hover:text-indigo-600 transition">Contoh Penerapan</a></li>
+                    <li><a href="#quiz" class="sidebar-link text-gray-700 hover:text-indigo-600 transition">Latihan Singkat</a></li>
+                    <li><a href="#kesimpulan" class="sidebar-link text-gray-700 hover:text-indigo-600 transition">Kesimpulan</a></li>
+                </ul>
+                
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-indigo-700"></h3>
+                    <div class="space-y-3">
+                        <a href="#" class="flex items-center text-gray-700 hover:text-indigo-600 transition">
+                            <i class="fas fa-file-pdf mr-3 text-red-500"></i> 
+                        </a>
+                        <a href="#" class="flex items-center text-gray-700 hover:text-indigo-600 transition">
+                            <i class="fas fa-file-powerpoint mr-3 text-orange-500"></i> 
+                        </a>
+                        <a href="#" class="flex items-center text-gray-700 hover:text-indigo-600 transition">
+                            <i class="fas fa-video mr-3 text-blue-500"></i> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="lg:w-3/4">
+            <!-- Pengantar Section -->
+            <section id="pengantar" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-700">Pengantar Singkat</h2>
+                <div class="prose max-w-none">
+                    <p class="mb-4">Kecerdasan Buatan (Artificial Intelligence/AI) telah menjadi salah satu bidang teknologi yang paling berkembang pesat dalam beberapa dekade terakhir. Dari asisten virtual di ponsel kita hingga sistem rekomendasi yang mempersonalisasi pengalaman belanja online, AI telah menyentuh hampir setiap aspek kehidupan modern.</p>
+                    <p>Materi ini akan membawa Anda melalui perjalanan memahami dasar-dasar kecerdasan buatan, mulai dari definisi dan konsep intinya, sejarah perkembangannya, hingga berbagai penerapan praktis yang mengubah dunia saat ini.</p>
+                </div>
+            </section>
+
+            <!-- Definisi Section -->
+            <section id="definisi" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-700">Definisi Kecerdasan Buatan</h2>
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                    <div class="prose max-w-none">
+                        <p class="mb-4">Kecerdasan Buatan (AI) adalah simulasi proses kecerdasan manusia oleh mesin, terutama sistem komputer. Proses ini mencakup pembelajaran (memperoleh informasi dan aturan untuk menggunakan informasi), penalaran (menggunakan aturan untuk mencapai perkiraan atau kesimpulan yang pasti), dan koreksi diri.</p>
+                        <p>AI dapat dikategorikan menjadi dua jenis utama:</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li><strong>AI Sempit (Narrow AI):</strong> Dirancang untuk melakukan tugas tertentu (seperti pengenalan wajah atau pencarian internet)</li>
+                            <li><strong>AI Umum (General AI):</strong> Dapat memahami, belajar, dan menerapkan pengetahuan di berbagai bidang seperti manusia</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-4 flex justify-center">
+                        <img src="https://img.freepik.com/free-vector/artificial-intelligence-isometric-flowchart_1284-52291.jpg" alt="AI Concept" class="rounded-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <!-- Fun Fact -->
+                <div class="mt-6 bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                    <div class="flex">
+                        <div class="flex-shrink-0 text-indigo-600">
+                            <i class="fas fa-lightbulb text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-semibold text-indigo-800">FAKTA MENARIK</h4>
+                            <p class="text-sm text-indigo-700">Istilah "Artificial Intelligence" pertama kali diciptakan pada tahun 1956 oleh John McCarthy di Konferensi Dartmouth, yang dianggap sebagai kelahiran resmi bidang AI.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sejarah Section -->
+            <section id="sejarah" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-700">Sejarah Perkembangan</h2>
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                    <div class="order-2 md:order-1 prose max-w-none">
+                        <p class="mb-4">Perjalanan AI dimulai pada tahun 1950-an dengan karya perintis Alan Turing yang mengajukan pertanyaan "Bisakah mesin berpikir?" dan mengembangkan Tes Turing sebagai ukuran kecerdasan mesin.</p>
+                        <p class="mb-4">Perkembangan AI mengalami pasang surut dengan periode "AI Musim Dingin" ketika pendanaan dan minuman menurun karena hasil yang tidak memenuhi harapan. Namun, sejak tahun 2010-an, AI mengalami kebangkitan dramatis berkat:</p>
+                        <ul class="list-disc pl-6">
+                            <li>Ketersediaan data dalam jumlah besar</li>
+                            <li>Peningkatan daya komputasi</li>
+                            <li>Kemajuan dalam algoritma pembelajaran mesin</li>
+                        </ul>
+                    </div>
+                    <div class="order-1 md:order-2 bg-gray-100 rounded-lg p-4 flex justify-center">
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-history-infographic-template_23-2149088122.jpg" alt="AI History" class="rounded-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Konsep Section -->
+            <section id="konsep" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-700">Konsep Utama</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h3 class="font-semibold text-lg mb-3 text-indigo-600">Pembelajaran Mesin (Machine Learning)</h3>
+                        <p class="text-gray-700">Cabang AI yang berfokus pada pengembangan sistem yang dapat belajar dari data tanpa diprogram secara eksplisit. Ini mencakup berbagai teknik seperti pembelajaran terawasi, tidak terawasi, dan penguatan.</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h3 class="font-semibold text-lg mb-3 text-indigo-600">Jaringan Saraf (Neural Networks)</h3>
+                        <p class="text-gray-700">Sistem komputasi yang terinspirasi oleh struktur biologis otak manusia, terdiri dari lapisan neuron buatan yang memproses informasi secara hierarkis.</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h3 class="font-semibold text-lg mb-3 text-indigo-600">Pemrosesan Bahasa Alami (NLP)</h3>
+                        <p class="text-gray-700">Kemampuan komputer untuk memahami, menafsirkan, dan memanipulasi bahasa manusia, yang memungkinkan interaksi manusia-mesin yang lebih alami.</p>
+                    </div>
+                    <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                        <h3 class="font-semibold text-lg mb-3 text-indigo-600">Penglihatan Komputer (Computer Vision)</h3>
+                        <p class="text-gray-700">Bidang yang memungkinkan komputer untuk mengekstrak informasi yang berarti dari gambar digital atau video dan mengambil tindakan berdasarkan informasi tersebut.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Penerapan Section -->
+            <section id="penerapan" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-700">Contoh Penerapan</h2>
+                <div class="grid md:grid-cols-2 gap-6 items-center">
+                    <div class="prose max-w-none">
+                        <p class="mb-4">AI telah diterapkan di berbagai bidang dengan hasil yang mengesankan:</p>
+                        <ul class="list-disc pl-6 mb-4">
+                            <li><strong>Kesehatan:</strong> Diagnosis penyakit, penemuan obat, dan bedah robotik</li>
+                            <li><strong>Keuangan:</strong> Deteksi penipuan, penilaian kredit, dan perdagangan algoritmik</li>
+                            <li><strong>Transportasi:</strong> Kendaraan otonom dan manajemen lalu lintas</li>
+                            <li><strong>Ritel:</strong> Rekomendasi produk dan manajemen inventaris</li>
+                            <li><strong>Pendidikan:</strong> Pembelajaran yang dipersonalisasi dan sistem tutor cerdas</li>
+                        </ul>
+                        <p>Penerapan AI terus berkembang dan diharapkan akan mengubah lebih banyak industri di masa depan.</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-4 flex justify-center">
+                        <img src="https://img.freepik.com/free-vector/artificial-intelligence-concept-illustration_114360-5593.jpg" alt="AI Applications" class="rounded-lg w-full h-auto object-cover">
+                    </div>
+                </div>
+
+                <!-- Fun Fact -->
+                <div class="mt-6 bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                    <div class="flex">
+                        <div class="flex-shrink-0 text-indigo-600">
+                            <i class="fas fa-lightbulb text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-sm font-semibold text-indigo-800">FAKTA MENARIK</h4>
+                            <p class="text-sm text-indigo-700">Pada tahun 2021, sistem AI DeepMind dari Google mampu memprediksi struktur hampir semua protein yang diketahui sains - sebuah terobosan yang dapat mempercepat penemuan obat baru secara dramatis.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quiz Section -->
+            <section id="quiz" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-6 text-indigo-700">Latihan Singkat</h2>
+                
+                <div class="space-y-6">
+                    <!-- Question 1 -->
+                    <div class="border border-gray-200 rounded-lg p-5">
+                        <h3 class="font-semibold text-lg mb-3">1. Apa yang dimaksud dengan AI Sempit (Narrow AI)?</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input type="radio" id="q1a" name="q1" class="mr-3">
+                                <label for="q1a">AI yang dapat melakukan berbagai tugas seperti manusia</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q1b" name="q1" class="mr-3">
+                                <label for="q1b">AI yang dirancang untuk melakukan tugas tertentu</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q1c" name="q1" class="mr-3">
+                                <label for="q1c">AI yang memiliki kesadaran diri</label>
+                            </div>
+                        </div>
+                        <button onclick="toggleAnswer('answer1')" class="mt-3 text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
+                            Lihat Jawaban <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="answer1" class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out">
+                            <div class="mt-3 bg-green-50 border-l-4 border-green-500 p-3 rounded-r-lg">
+                                <p class="text-green-700"><strong>Jawaban benar:</strong> B. AI yang dirancang untuk melakukan tugas tertentu</p>
+                                <p class="text-green-700 mt-1">AI Sempit dirancang untuk menyelesaikan tugas tertentu seperti pengenalan suara atau rekomendasi produk, berbeda dengan AI Umum yang memiliki kemampuan lebih luas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="border border-gray-200 rounded-lg p-5">
+                        <h3 class="font-semibold text-lg mb-3">2. Siapa yang pertama kali menciptakan istilah "Artificial Intelligence"?</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <input type="radio" id="q2a" name="q2" class="mr-3">
+                                <label for="q2a">Alan Turing</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q2b" name="q2" class="mr-3">
+                                <label for="q2b">John McCarthy</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input type="radio" id="q2c" name="q2" class="mr-3">
+                                <label for="q2c">Marvin Minsky</label>
+                            </div>
+                        </div>
+                        <button onclick="toggleAnswer('answer2')" class="mt-3 text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
+                            Lihat Jawaban <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="answer2" class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out">
+                            <div class="mt-3 bg-green-50 border-l-4 border-green-500 p-3 rounded-r-lg">
+                                <p class="text-green-700"><strong>Jawaban benar:</strong> B. John McCarthy</p>
+                                <p class="text-green-700 mt-1">John McCarthy menciptakan istilah "Artificial Intelligence" pada tahun 1956 dalam konferensi Dartmouth yang menjadi tonggak sejarah perkembangan AI.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 3 -->
+                    <div class="border border-gray-200 rounded-lg p-5">
+                        <h3 class="font-semibold text-lg mb-3">3. Sebutkan salah satu contoh penerapan AI dalam bidang kesehatan!</h3>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500" placeholder="Tulis jawaban Anda di sini...">
+                        <button onclick="toggleAnswer('answer3')" class="mt-3 text-sm text-indigo-600 hover:text-indigo-800 flex items-center">
+                            Lihat Jawaban <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div id="answer3" class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-out">
+                            <div class="mt-3 bg-green-50 border-l-4 border-green-500 p-3 rounded-r-lg">
+                                <p class="text-green-700"><strong>Jawaban contoh:</strong> Diagnosis penyakit, penemuan obat, bedah robotik, analisis gambar medis, prediksi penyebaran penyakit, dll.</p>
+                                <p class="text-green-700 mt-1">AI dalam kesehatan membantu meningkatkan akurasi diagnosis, mempercepat penelitian obat baru, dan memungkinkan prosedur bedah yang lebih presisi.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <section id="kesimpulan" class="animate-fade-in bg-white rounded-xl shadow-md p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-700">Kesimpulan</h2>
+                <div class="prose max-w-none">
+                    <p class="mb-4">Kecerdasan Buatan telah berkembang dari konsep teoretis menjadi teknologi transformatif yang mengubah berbagai aspek kehidupan modern. Memahami dasar-dasar AI membantu kita:</p>
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>Mengapresiasi potensi dan keterbatasan teknologi ini</li>
+                        <li>Membuat keputusan yang lebih baik tentang penerapannya</li>
+                        <li>Mempersiapkan diri untuk perubahan yang dibawanya ke berbagai industri</li>
+                    </ul>
+                    <p>Dengan perkembangan yang terus berlanjut, AI diprediksi akan memainkan peran yang semakin besar di masa depan, menjadikan pemahaman tentang konsep-konsep dasarnya semakin penting bagi semua orang.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+             <footer class="text-gray-50 body-font bg-blue-950">
+  <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col  ">
+    <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left mx-8">
+      <!-- Logo di Footer -->
+<div class="py-6 px-4">
+  <div class="container mx-auto flex justify-center md:justify-start">
+    <img 
+      src="assets/webtera_logo_transparent.png" 
+      alt="WebTera Logo" 
+      class=" md:h-30 md:scale-[2.0] md:ml-10 md:-mt-17 transition-transform duration-300 mr-4 -mt-30 -mb-9 md:-mt-8 md:mr-10 "
+    />
+  </div>
+</div>
+
+
+
+
+      <p class="ml-2 text-sm text-gray-200 mr-2 -mt-8 md:ml-10 mb-3 md:-mt-1">Platform all-in-one untuk membangun website pendidikan, kuis interaktif, portofolio, dan konten digital lainnya. WebTera bikin semuanya jadi lebih mudah.</p>
+    </div>
+    <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">NAVIGASI</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Beranda</a>
+          </li>
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Tentang</a>
+          </li>
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Kontak</a>
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+        <h2 class="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">LINK CEPAT</h2>
+        <nav class="list-none mb-10">
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Materi</a>
+          </li>
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Video</a>
+          </li>
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Kuis</a>
+          </li>
+          <li>
+            <a class="text-gray-50 hover:text-gray-800">Permainan</a>
+          </li>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-100">
+    <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+      <p class="text-blue-950 text-sm text-center sm:text-left">© 2025 Webtera —-
+        <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="textblue-950 ml-1" target="_blank">@webtera.id</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <a class="text-blue-950" href="#">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-blue-950" href="#">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-blue-950" href="#">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-blue-950" href="#">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+</body>
+</html>
